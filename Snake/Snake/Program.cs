@@ -39,7 +39,7 @@ namespace Snake
             pList.Add(p1);
             pList.Add(p2);
             pList.Add(p3);
-            pList.Add(p4);
+            pList.Add(p4); 
                 
 
             Console.ReadKey();
