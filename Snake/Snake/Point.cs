@@ -56,6 +56,13 @@ namespace Snake
             Console.Write(symbol);
         }
 
+        public void Clear()
+        {
+            symbol = ' ';
+            DrawSymbol();
+        }
+            
+
         public override string ToString()
         {
             return x + "," + y + "," + symbol; 
