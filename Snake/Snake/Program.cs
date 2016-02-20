@@ -11,38 +11,35 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Point p1 = new Point( 1, 3, '*' );
-            p1.DrawSymbol();
+     
+            Console.SetBufferSize(80,25);
 
-            Point p2 = new Point( 4, 5, '#');
-            p2.DrawSymbol();
-
-            HorizontalLine hl = new HorizontalLine(5,10,8,'+'); ;
+            HorizontalLine hl = new HorizontalLine(1,78,0,'+');
             hl.DrawLine();
-
-            VerticalLine vl = new VerticalLine(12,5,10,'*');
+            HorizontalLine hl1 = new HorizontalLine(1, 78, 24, '+');
+            hl1.DrawLine();
+            VerticalLine vl = new VerticalLine(0,0,24,'+');
             vl.DrawLine();
+            VerticalLine vl1 = new VerticalLine(78, 0, 24, '+');
+            vl1.DrawLine();
 
 
             Point p = new Point(4,5,'*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.DrawLine();
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-   
+
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
+
+                Thread.Sleep(100);
+                snake.Move();
+            }
+
             Console.ReadKey();
         }
 
