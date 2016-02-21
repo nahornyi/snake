@@ -21,6 +21,16 @@ namespace Snake
             
         }
 
+        public override void DrawLine()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            base.DrawLine();
+
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+
 
 
 
